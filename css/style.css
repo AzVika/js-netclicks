@@ -442,6 +442,15 @@ main {
     font-weight: 700;
 }
 
+.search__form-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search__form-block {
+    width: 95%;
+}
+
 .search__form-input {
     width: 100%;
     padding-top: 5px;
@@ -452,6 +461,16 @@ main {
 
 .search__form-input:focus {
     border-top: 2px solid #ccc;
+}
+
+.search__form-btn {
+    background-color: #00838f;
+    color: #fff;
+    margin-left: 15px;
+}
+
+.search__form-btn:hover {
+    background: #00bcd6;
 }
 
 .tv-shows__head {
@@ -569,6 +588,7 @@ main {
 .modal__description {
 	overflow-y: auto;
 	max-height: 400px;
+    padding: 20px;
 }
 
 .modal__description section {
@@ -680,6 +700,20 @@ main {
     transition: all ease .5s;
     border-radius: 10px;
 
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    padding: 0 5px;
 }
 
 @media (max-width: 1024px) {

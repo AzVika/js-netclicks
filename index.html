@@ -85,11 +85,13 @@
         <section class="search">
             <form class="search__form">
                 <h2 class="search__form-head">Поиск</h2>
-                <label class="search__form-block">
-                    <input type="text" class="search__form-input" id="searchText"
-                           placeholder="Введи название...">
-                </label>
-                <button type="submit">Поиск</button>
+                    <div class="search__form-wrapper">
+                        <label class="search__form-block">
+                            <input type="text" class="search__form-input" id="searchText"
+                                   placeholder="Введи название...">
+                        </label>
+                        <button class="search__form-btn" type="submit">Поиск</button>
+                    </div>
             </form>
         </section>
     </div>
@@ -98,8 +100,10 @@
 <main>
     <div class="container">
         <section class="tv-shows">
-            <h3 class="tv-shows__head">Результат поиска</h3>
+            <h3 class="tv-shows__head"></h3>
             <ul class="tv-shows__list"></ul>
+
+            <ul class="pagination"></ul>
         </section>
 
     </div>
