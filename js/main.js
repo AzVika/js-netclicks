@@ -25,7 +25,9 @@ window.onload = function () {
 		tvShowsHead = document.querySelector('.tv-shows__head'),
 		posterWrapper = document.querySelector('.poster__wrapper'),
 		modalContent = document.querySelector('.modal__content'),
-		pagination = document.querySelector('.pagination');
+		pagination = document.querySelector('.pagination'),
+		headTrailer = document.querySelector('.modal__head-trailer'),
+		trailer = document.querySelector('.modal__trailer');
 
 
 	const loading = document.createElement('div');
@@ -82,6 +84,11 @@ window.onload = function () {
 		getCategory = category => {
 			const tempUrl = `${this.SERVER}/tv/${category}?api_key=${this.API_KEY}&language=ru-RU`;
 			return this.getData(tempUrl, true);
+		}
+
+		getVideo = id => {
+			const tempUrl = `${this.SERVER}/tv/${id}/videos?api_key=${this.API_KEY}&language=ru-RU`;
+			return this.getData(tempUrl, false);
 		}
 	}
 
@@ -209,7 +216,9 @@ window.onload = function () {
 
 
 			dbService.getTvShow(card.id)
-				.then( ({ 
+				.then( (response) => {
+
+					const { 
 					poster_path: posterPath,
 					name: title, 
 					genres, 
@@ -217,7 +226,7 @@ window.onload = function () {
 					overview,
 					homepage,
 					first_air_date: firstDate
-					}) => {
+					} = response;
 					
 					if (!posterPath) {
 						posterWrapper.style.display = 'none';
@@ -243,6 +252,32 @@ window.onload = function () {
 					rating.textContent = voteAverage;
 					description.textContent = overview;
 					modalLink.href = homepage || '#';
+					return response.id;
+				})
+				.then(dbService.getVideo)
+				.then( response => {
+					headTrailer.classList.add('hide');
+					trailer.textContent = '';
+
+					if(response.results.length) {
+						headTrailer.classList.remove('hide');
+						response.results.forEach(item => {
+							const treilerItem = document.createElement('li');
+
+							treilerItem.innerHTML =`
+								<iframe
+									width="400"
+									height="300"
+									src="https://www.youtube.com/embed/${item.key}"
+									frameborder="0"
+									allowfullscreen>
+								</iframe>
+								<h4>${item.name}</h4>
+							`;
+
+							trailer.append(treilerItem);
+						});
+					}
 				})
 				.then( () => {
 					document.body.style.overflow = 'hidden';

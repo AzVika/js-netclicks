@@ -566,7 +566,7 @@ main {
     max-width: 800px;
     min-height: 400px;
 	max-height: 550px;
-    padding: 35px 50px 35px 150px;
+    padding: 35px 50px 35px 110px;
     background-color: #fff;
     font-size: 14px;
     line-height: 1.2;
@@ -608,6 +608,19 @@ main {
 .modal__link:hover {
     color: #FF637F;
 }
+
+.modal__head-trailer {
+    padding: 20px 0 10px 0;
+}
+
+.modal__trailer li {
+    padding-top: 20px;
+}
+
+.modal__trailer h4 {
+    margin: 10px 0 20px 0;
+}
+
 
 .original__header {
     display: -webkit-box;
