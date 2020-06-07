@@ -265,13 +265,14 @@ window.onload = function () {
 							const treilerItem = document.createElement('li');
 
 							treilerItem.innerHTML =`
-								<iframe
-									width="400"
-									height="300"
-									src="https://www.youtube.com/embed/${item.key}"
-									frameborder="0"
-									allowfullscreen>
-								</iframe>
+								<div class="modal__video-wrapper">
+									<iframe
+										class="modal__video-iframe"
+										src="https://www.youtube.com/embed/${item.key}"
+										frameborder="0"
+										allowfullscreen>
+									</iframe>
+								</div>
 								<h4>${item.name}</h4>
 							`;
 
