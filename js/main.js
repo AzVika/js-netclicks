@@ -27,7 +27,8 @@ window.onload = function () {
 		modalContent = document.querySelector('.modal__content'),
 		pagination = document.querySelector('.pagination'),
 		headTrailer = document.querySelector('.modal__head-trailer'),
-		trailer = document.querySelector('.modal__trailer');
+		trailer = document.querySelector('.modal__trailer'),
+		popular = document.getElementById('popular');
 
 
 	const loading = document.createElement('div');
@@ -158,6 +159,9 @@ window.onload = function () {
 			window.scrollTo(0, 0);
 		}
 	};
+
+	// start popular films
+	dbService.getCategory('popular').then((response) => renderCard(response, popular));
 
 
 	// search from DB

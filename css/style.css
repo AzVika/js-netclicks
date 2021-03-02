@@ -40,8 +40,7 @@ html {
 
 body {
     margin: 0;
-
-    background-color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255) url('../img/bg-film-4.jpg') left top / cover no-repeat;
     font-family: Museo Sans, Arial, sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -99,6 +98,10 @@ p {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 30px;
+}
+
+.main-wrapper {
+
 }
 
 
@@ -397,6 +400,11 @@ main {
     margin-top: 60px;
 }
 
+.header {
+    padding: 60px 0 40px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
 .title-wrapper {
     margin-right: 40px;
 }
@@ -413,8 +421,6 @@ main {
 }
 
 .header-flex {
-    margin-top: 60px;
-    margin-bottom: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -491,6 +497,7 @@ main {
 .tv-shows__item {
     min-width: 185px;
     margin: 15px 10px 30px;
+    background: linear-gradient(-60deg, #e6d6a5 0%, #e0f0f2 100%);
 }
 
 .tv-card {
@@ -747,8 +754,12 @@ main {
     display: block;
 }
 
+.pagination li a:hover {
+    color: #fff;
+}
+
 .pagination .active-page {
-    color: #00838f;
+    color: #ffc107;
 }
 
 
