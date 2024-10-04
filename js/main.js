@@ -55,7 +55,7 @@ window.onload = function () {
 			if(res.ok) {
 				return res.json();
 			} else {
-				throw new Error(`Не удалось получить данные по адресу ${url}`);
+				throw new Error(`Неможливо отримати дані за адресою ${url}`);
 			}
 		}
 
@@ -68,7 +68,7 @@ window.onload = function () {
 		// }
 
 		getSearchResult = query => {
-			const tempUrl = `${this.SERVER}/search/tv?api_key=${this.API_KEY}&query=${query}&language=ru-RU`;
+			const tempUrl = `${this.SERVER}/search/tv?api_key=${this.API_KEY}&query=${query}&language=uk-UK`;
 			return this.getData(tempUrl, true);
 		}
 
@@ -78,17 +78,17 @@ window.onload = function () {
 		}
 
 		getTvShow = id => {
-			const tempUrl = `${this.SERVER}/tv/${id}?api_key=${this.API_KEY}&language=ru-RU`;
+			const tempUrl = `${this.SERVER}/tv/${id}?api_key=${this.API_KEY}&language=uk-UK`;
 			return this.getData(tempUrl, false);
 		}
 
 		getCategory = category => {
-			const tempUrl = `${this.SERVER}/tv/${category}?api_key=${this.API_KEY}&language=ru-RU`;
+			const tempUrl = `${this.SERVER}/tv/${category}?api_key=${this.API_KEY}&language=uk-UK`;
 			return this.getData(tempUrl, true);
 		}
 
 		getVideo = id => {
-			const tempUrl = `${this.SERVER}/tv/${id}/videos?api_key=${this.API_KEY}&language=ru-RU`;
+			const tempUrl = `${this.SERVER}/tv/${id}/videos?api_key=${this.API_KEY}&language=uk-UK`;
 			return this.getData(tempUrl, false);
 		}
 	}
@@ -100,14 +100,14 @@ window.onload = function () {
 		tvShowsList.textContent = '';
 
 		if(!response.total_results) {
-			tvShowsHead.textContent = 'По вашему запросу ничего не найдено!';
+			tvShowsHead.textContent = 'На ваш запит нічого не знайдено!';
 			tvShowsHead.style.color = 'red';
 			pagination.textContent = '';
 			loading.remove();
 			return;
 		}
 
-		tvShowsHead.textContent = target ? target.textContent + ':' : 'Результат поиска:';
+		tvShowsHead.textContent = target ? target.textContent + ':' : 'Результат пошуку:';
 		tvShowsHead.style.color = 'green';
 
 		response.results.forEach(item => {
